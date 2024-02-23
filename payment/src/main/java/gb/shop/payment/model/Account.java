@@ -20,7 +20,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-  private BigDecimal amount = new BigDecimal(1000);
+    private BigDecimal amount = new BigDecimal(1000);
 
     public Account(String name) {
         this.name = name;

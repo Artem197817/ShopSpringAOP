@@ -2,7 +2,6 @@ package gb.shop.warehouse.controller;
 
 
 import gb.shop.warehouse.model.Warehouse;
-import gb.shop.warehouse.model.WarehouseReserve;
 import gb.shop.warehouse.service.WarehouseService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

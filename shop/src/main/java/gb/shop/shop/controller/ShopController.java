@@ -19,6 +19,7 @@ public class ShopController {
     private final WarehouseController warehouseController;
     private final AccountController accountController;
 
+
     @PostMapping("/shop")
     public String shop(ModelAndView modelAndView) {
         List<Warehouse> warehouses = warehouseController.getAllWarehouse();

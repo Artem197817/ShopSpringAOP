@@ -8,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-
 @Data
 @Entity
 @NoArgsConstructor
@@ -21,7 +20,7 @@ public class WarehouseReserve {
     private Double price;
     private int quantity;
 
-    public WarehouseReserve (String productName, Double price, int quantity) {
+    public WarehouseReserve(String productName, Double price, int quantity) {
         this.productName = productName;
         this.price = price;
         this.quantity = quantity;

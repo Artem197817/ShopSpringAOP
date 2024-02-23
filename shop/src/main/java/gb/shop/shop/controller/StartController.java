@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -22,8 +21,8 @@ public class StartController {
 
 
     @PostMapping("/start")
-    public ModelAndView start (){
-        Warehouse warehouse = new Warehouse("notebook",100.0, 10);
+    public ModelAndView start() {
+        Warehouse warehouse = new Warehouse("notebook", 100.0, 10);
         Account account = new Account("receiver");
         Account account1 = new Account("sender");
         warehouseController.saveWarehouse(warehouse);
@@ -35,7 +34,7 @@ public class StartController {
     }
 
     @GetMapping("/")
-    public String init (){
+    public String init() {
         return "start";
     }
 }

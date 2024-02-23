@@ -18,7 +18,7 @@ public class AccountController {
 
     @PostMapping("/transfer")
     public String transferMoney(@RequestBody TransferRequest request) {
-    return  transferService.transferMoney(
+        return transferService.transferMoney(
                 request.getSenderAccountId(),
                 request.getReceiverAccountId(),
                 request.getAmount());
@@ -30,7 +30,7 @@ public class AccountController {
     }
 
     @PostMapping("/save")
-    public void saveAccount (@RequestBody Account account){
+    public void saveAccount(@RequestBody Account account) {
         accountService.saveAccount(account);
     }
 

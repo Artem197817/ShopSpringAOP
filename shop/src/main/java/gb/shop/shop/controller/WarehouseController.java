@@ -1,12 +1,9 @@
 package gb.shop.shop.controller;
 
-import gb.shop.payment.model.Account;
+import gb.shop.shop.aspects.LogAs;
 import gb.shop.shop.service.WarehouseService;
 import gb.shop.warehouse.model.Warehouse;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,7 +32,7 @@ public class WarehouseController {
             e.printStackTrace();
         }
     }
-
+@LogAs
     public List<Warehouse> getAllWarehouse() {
         String url = urlWarehouse + "/all";
         try {

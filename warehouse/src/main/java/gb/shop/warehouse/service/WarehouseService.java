@@ -17,29 +17,31 @@ public class WarehouseService {
 
     private final WarehouseRepository warehouseRepository;
     private final WarehouseReserveRepository warehouseReserveRepository;
+
     public List<Warehouse> findAll() {
         return warehouseRepository.findAll();
     }
 
 
-    public Warehouse findWarehouseById (Long id){
-        return warehouseRepository.findById(id).orElse( null);
+    public Warehouse findWarehouseById(Long id) {
+        return warehouseRepository.findById(id).orElse(null);
     }
 
     @Transactional
-    public String  reserveProduct (Long warehouseId, int quantity){
+    public String reserveProduct(Long warehouseId, int quantity) {
         Warehouse warehouse = findWarehouseById(warehouseId);
         if (warehouse == null) return "Продукт не найден";
-        int remains  = warehouse.getQuantity() - quantity;
-        if (remains<0) return "Недостаточное количество товара на складе";
+        int remains = warehouse.getQuantity() - quantity;
+        if (remains < 0) return "Недостаточное количество товара на складе";
         warehouse.setQuantity(remains);
         warehouseRepository.save(warehouse);
-        warehouseReserveRepository.save(new WarehouseReserve(warehouse.getProductName(),warehouse.getPrice(),quantity));
-        return "Зарезеpвирован " +warehouse.getProductName() + " в количестве " + quantity;
+        warehouseReserveRepository.save(new WarehouseReserve(warehouse.getProductName(), warehouse.getPrice(), quantity));
+        return "Зарезеpвирован " + warehouse.getProductName() + " в количестве " + quantity;
 
 
     }
-    public void saveWarehouse (Warehouse warehouse){
+
+    public void saveWarehouse(Warehouse warehouse) {
         warehouseRepository.save(warehouse);
     }
 }
